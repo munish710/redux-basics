@@ -9,15 +9,8 @@ import { createStore } from "redux";
 import reducer from "./reducer";
 import { Provider } from "react-redux";
 
-//intial store
-const initalStore = {
-  cart: cartItems,
-  total: 0,
-  amount: 0,
-};
-
 //store
-const store = createStore(reducer, initalStore);
+const store = createStore(reducer);
 
 function App() {
   // cart setup
