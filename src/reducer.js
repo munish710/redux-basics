@@ -23,18 +23,14 @@ function reducer(state, action) {
       };
 
     case DECREASE:
-      let tempCart2 = [];
-      if (action.payload.amount === 1) {
-        tempCart2 = state.cart.filter((item) => item.id !== action.payload.id);
-      } else {
-        tempCart2 = state.cart.map((item) => {
-          if (item.id === action.payload.id) {
-            // item = { ...item, amount: item.amount + 1 };
-            item.amount -= 1;
-          }
-          return item;
-        });
-      }
+      let tempCart2 = state.cart.map((item) => {
+        if (item.id === action.payload.id) {
+          // item = { ...item, amount: item.amount + 1 };
+          item.amount -= 1;
+        }
+        return item;
+      });
+
       return { ...state, cart: tempCart2 };
     case GET_TOTALS:
       let { total, amount } = state.cart.reduce(
