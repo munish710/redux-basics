@@ -6,7 +6,7 @@ import { CLEAR_CART, GET_TOTALS } from "../action";
 const CartContainer = ({ cart = [], total, dispatch }) => {
   React.useEffect(() => {
     dispatch({ type: GET_TOTALS });
-  });
+  }, [cart, dispatch]);
   if (cart.length === 0) {
     return (
       <section className="cart">
